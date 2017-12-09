@@ -4,7 +4,7 @@
     <el-col :span="12" :offset="6">
       <el-form ref="form" :model="form">
         <el-form-item label="提取三元组">
-          <el-input type="textarea" v-model="form.UserInput"></el-input>
+          <el-input autosize type="textarea" v-model="form.UserInput"></el-input>
         </el-form-item>
 
         <el-form-item>
