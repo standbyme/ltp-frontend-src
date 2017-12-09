@@ -1,5 +1,5 @@
 <template>
-<div>value !!! {{ResultData}}</div>
+<div>{{ResultData}}</div>
 </template>
 
 <script>
@@ -7,10 +7,9 @@
 
 export default {
   name: "Result",
+  props: ["ResultData"],
   data() {
-    return {
-      ResultData: ""
-    };
+    return {};
   }
 };
 </script>

@@ -15,7 +15,7 @@
   </el-row>
   <el-row>
     <el-col :span="12" :offset="6">
-      <ResultList />
+      <ResultList :ResultListData="ResultListData"/>
     </el-col>
   </el-row>
 </div>
@@ -24,9 +24,8 @@
 <script>
 /* eslint-disable */
 import axios from "axios";
-import ResultList from './ResultList'
+import ResultList from "./ResultList";
 const ENDPOINT = "http://127.0.0.1:5000/";
-
 
 export default {
   name: "HelloWorld",
@@ -37,7 +36,8 @@ export default {
     return {
       form: {
         UserInput: ""
-      }
+      },
+      ResultListData: []
     };
   },
   methods: {
@@ -46,10 +46,10 @@ export default {
         .post(ENDPOINT, {
           UserInput: encodeURI(this.form.UserInput)
         })
-        .then(function(response) {
-          console.log(response.data.Result);
+        .then(response => {
+          this.ResultListData = response.data.Result;
         })
-        .catch(function(error) {
+        .catch(error => {
           console.log(error);
         });
     }

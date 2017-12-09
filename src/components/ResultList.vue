@@ -1,26 +1,21 @@
 <template>
 <div>
-  <ol>
-    <li v-for="ResultData in ResultListData">
-      233
-    </li>
-  </ol>
+  <Result v-for="(ResultData,id) in ResultListData" :key="id" :ResultData="ResultData" />
 </div>
 </template>
 
 <script>
 /* eslint-disable */
-import Result from './Result'
+import Result from "./Result";
 
 export default {
   name: "ResultList",
   components: {
     Result
   },
+  props: ["ResultListData"],
   data() {
-    return {
-      ResultListData: []
-    };
+    return {};
   }
 };
 </script>
