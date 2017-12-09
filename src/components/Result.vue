@@ -1,21 +1,15 @@
 <template>
-<div>
-  <ol>
-    <li v-for="Result in ResultList">
-      233
-    </li>
-  </ol>
-</div>
+<div>value !!! {{value}}</div>
 </template>
 
 <script>
 /* eslint-disable */
 
 export default {
-  name: "ResultList",
+  name: "Result",
   data() {
     return {
-      ResultList: []
+      value: ""
     };
   }
 };
