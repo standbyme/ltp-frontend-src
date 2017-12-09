@@ -1,5 +1,5 @@
 <template>
-<div>value !!! {{value}}</div>
+<div>value !!! {{ResultData}}</div>
 </template>
 
 <script>
@@ -9,7 +9,7 @@ export default {
   name: "Result",
   data() {
     return {
-      value: ""
+      ResultData: ""
     };
   }
 };

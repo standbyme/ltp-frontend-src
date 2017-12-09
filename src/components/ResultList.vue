@@ -1,7 +1,7 @@
 <template>
 <div>
   <ol>
-    <li v-for="Result in ResultList">
+    <li v-for="ResultData in ResultListData">
       233
     </li>
   </ol>
@@ -10,12 +10,16 @@
 
 <script>
 /* eslint-disable */
+import Result from './Result'
 
 export default {
   name: "ResultList",
+  components: {
+    Result
+  },
   data() {
     return {
-      ResultList: []
+      ResultListData: []
     };
   }
 };
