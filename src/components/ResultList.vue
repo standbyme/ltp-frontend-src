@@ -1,18 +1,33 @@
 <template>
 <div>
-  <Result v-for="(ResultData,id) in ResultListData" :key="id" :ResultData="ResultData" />
+   <el-table
+      :data="ResultListData"
+      style="width: 100%">
+      <el-table-column
+        prop="HeadEntity"
+        label="HeadEntity">
+      </el-table-column>
+      <el-table-column
+        prop="Relation"
+        label="Relation">
+      </el-table-column>
+      <el-table-column
+        prop="TailEntity"
+        label="TailEntity">
+      </el-table-column>
+      <el-table-column
+        prop="SentenceStructure"
+        label="SentenceStructure">
+      </el-table-column>
+    </el-table>
 </div>
 </template>
 
 <script>
 /* eslint-disable */
-import Result from "./Result";
 
 export default {
   name: "ResultList",
-  components: {
-    Result
-  },
   props: ["ResultListData"],
   data() {
     return {};
