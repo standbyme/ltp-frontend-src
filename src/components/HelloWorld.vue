@@ -17,7 +17,7 @@
 <script>
 /* eslint-disable */
 import axios from "axios";
-
+const ENDPOINT = "http://127.0.0.1:5000/";
 function utf16to8(str) {
   var out, i, len, c;
   out = "";
@@ -50,11 +50,11 @@ export default {
   methods: {
     relation_triple_extraction_RULE: function(event) {
       axios
-        .post("http://127.0.0.1:5000/", {
+        .post(ENDPOINT, {
           UserInput: encodeURI(this.form.UserInput)
         })
         .then(function(response) {
-          console.log(response);
+          console.log(response.data.Result);
         })
         .catch(function(error) {
           console.log(error);
