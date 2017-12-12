@@ -44,17 +44,13 @@ export default {
     };
   },
   methods: {
-    relation_triple_extraction_RULE: function(event) {
-      axios
-        .post(ENDPOINT, {
-          UserInput: encodeURI(this.form.UserInput)
-        })
-        .then(response => {
-          this.ResultListData = response.data.Result;
-        })
-        .catch(error => {
-          console.log(error);
-        });
+    relation_triple_extraction_RULE: async function(event) {
+      try {
+        let response = await axios.post(ENDPOINT, {UserInput: encodeURI(this.form.UserInput)});
+        this.ResultListData = response.data.Result;
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
 };
