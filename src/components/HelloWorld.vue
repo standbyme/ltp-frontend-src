@@ -46,8 +46,15 @@ export default {
   methods: {
     relation_triple_extraction_RULE: async function(event) {
       try {
-        const response = await axios.post(ENDPOINT, {UserInput: encodeURI(this.form.UserInput)});
-        this.ResultListData = response.data.Result;
+        const triple_with_S_S__list = (await axios.post(ENDPOINT, {
+          UserInput: encodeURI(this.form.UserInput)
+        })).data.Result;
+        const triple_with_S_S_with_id__list = triple_with_S_S__list.map(
+          (m, index) => {
+            return { id: index, ...m };
+          }
+        );
+        this.ResultListData = triple_with_S_S_with_id__list;
       } catch (error) {
         console.log(error);
       }
