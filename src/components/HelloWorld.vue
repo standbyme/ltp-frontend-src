@@ -46,7 +46,7 @@ export default {
   methods: {
     relation_triple_extraction_RULE: async function(event) {
       try {
-        let response = await axios.post(ENDPOINT, {UserInput: encodeURI(this.form.UserInput)});
+        const response = await axios.post(ENDPOINT, {UserInput: encodeURI(this.form.UserInput)});
         this.ResultListData = response.data.Result;
       } catch (error) {
         console.log(error);

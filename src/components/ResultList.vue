@@ -4,20 +4,24 @@
       :data="ResultListData"
       style="width: 100%">
       <el-table-column
-        prop="HeadEntity"
+        prop="Triple.HeadEntity"
         label="HeadEntity">
       </el-table-column>
       <el-table-column
-        prop="Relation"
+        prop="Triple.Relation"
         label="Relation">
       </el-table-column>
       <el-table-column
-        prop="TailEntity"
+        prop="Triple.TailEntity"
         label="TailEntity">
       </el-table-column>
       <el-table-column
         prop="SentenceStructure"
         label="SentenceStructure">
+      </el-table-column>
+      <el-table-column
+        prop="SSID"
+        label="SSID">
       </el-table-column>
     </el-table>
 </div>
