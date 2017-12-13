@@ -20,8 +20,10 @@
         label="SentenceStructure">
       </el-table-column>
       <el-table-column
-        prop="SSID"
-        label="SSID">
+        label="Score">
+        <template slot-scope="scope">
+          <Score :ScoreData="scope.row.score" />
+        </template>
       </el-table-column>
     </el-table>
 </div>
@@ -29,9 +31,13 @@
 
 <script>
 /* eslint-disable */
+import Score from "./Score";
 
 export default {
   name: "ResultList",
+  components: {
+    Score
+  },
   props: ["ResultListData"],
   data() {
     return {};
