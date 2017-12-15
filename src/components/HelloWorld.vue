@@ -25,7 +25,8 @@
 /* eslint-disable */
 import axios from "axios";
 import ResultList from "./ResultList";
-const ENDPOINT = "http://127.0.0.1:1234/";
+const EXTRACT_ENDPOINT = "http://127.0.0.1:1234/";
+const SCORE_ENDPOINT = "http://127.0.0.1:8080/";
 
 export default {
   name: "HelloWorld",
@@ -46,7 +47,7 @@ export default {
   methods: {
     relation_triple_extraction_RULE: async function(event) {
       try {
-        const triple_with_S_S__list = (await axios.post(ENDPOINT, {
+        const triple_with_S_S__list = (await axios.post(EXTRACT_ENDPOINT, {
           UserInput: encodeURI(this.form.UserInput)
         })).data.Result;
         const triple_with_S_S_with_id__list = triple_with_S_S__list.map(
@@ -55,6 +56,14 @@ export default {
           }
         );
         this.ResultListData = triple_with_S_S_with_id__list;
+        const score_list = await axios.post(SCORE_ENDPOINT, {
+          triple_with_ssid_s: triple_with_S_S__list.map(m => {
+            return { triple: m.Triple, SSID: m.SSID };
+          })
+        });
+        score_list.forEach((element, index) => {
+          this.ResultListData[index]["score"] = element;
+        });
       } catch (error) {
         console.log(error);
       }
