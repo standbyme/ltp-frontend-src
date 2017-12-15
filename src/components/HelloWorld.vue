@@ -26,7 +26,7 @@
 import axios from "axios";
 import ResultList from "./ResultList";
 const EXTRACT_ENDPOINT = "http://127.0.0.1:1234/";
-const SCORE_ENDPOINT = "http://127.0.0.1:8080/";
+const SCORE_ENDPOINT = "http://127.0.0.1:8080/rest/score/post";
 
 export default {
   name: "HelloWorld",
